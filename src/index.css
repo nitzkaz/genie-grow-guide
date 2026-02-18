@@ -211,8 +211,13 @@
    Animations
    ========================================= */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(-1deg); }
+  75% { transform: translateY(-14px) rotate(1deg); }
+}
+@keyframes genie-glow {
+  0%, 100% { filter: drop-shadow(0 0 20px hsl(330 85% 55% / 0.5)) drop-shadow(0 0 40px hsl(330 85% 55% / 0.2)); }
+  50% { filter: drop-shadow(0 0 35px hsl(330 85% 55% / 0.8)) drop-shadow(0 0 70px hsl(330 85% 55% / 0.4)); }
 }
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.6; }
@@ -232,7 +237,10 @@
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+}
+.animate-genie-glow {
+  animation: genie-glow 3s ease-in-out infinite;
 }
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
