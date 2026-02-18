@@ -35,6 +35,7 @@ export default function Navbar() {
               src={genieLogo}
               alt="Genies Ltd"
               className="relative w-10 h-10 object-contain drop-shadow-lg transition-all duration-300 group-hover:drop-shadow-[0_0_12px_hsl(330_85%_55%_/_0.7)]"
+              style={{ mixBlendMode: 'screen' }}
             />
           </div>
           <div className="flex flex-col leading-none">
