@@ -31,11 +31,10 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10">
-            <div className="absolute inset-0 rounded-full bg-primary/20 blur-md group-hover:bg-primary/30 transition-all duration-300" />
             <img
               src={genieLogo}
               alt="Genies Ltd"
-              className="relative w-10 h-10 object-contain drop-shadow-lg"
+              className="relative w-10 h-10 object-contain drop-shadow-lg transition-all duration-300 group-hover:drop-shadow-[0_0_12px_hsl(330_85%_55%_/_0.7)]"
             />
           </div>
           <div className="flex flex-col leading-none">

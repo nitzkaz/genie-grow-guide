@@ -75,14 +75,10 @@ export default function HeroSection() {
           {/* Genie illustration */}
           <div className="flex justify-center md:justify-end">
             <div className="relative">
-              {/* Glow behind logo */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-80 h-80 rounded-full bg-primary/15 blur-[60px]" />
-              </div>
               <img
                 src={genieLogo}
                 alt="Genies Ltd - Magic Lamp"
-                className="relative w-72 h-72 md:w-96 md:h-96 object-contain animate-float drop-shadow-2xl"
+                className="relative w-72 h-72 md:w-96 md:h-96 object-contain animate-float animate-genie-glow"
               />
             </div>
           </div>
