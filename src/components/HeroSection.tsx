@@ -15,13 +15,6 @@ export default function HeroSection() {
           {/* Text */}
           <div className="space-y-8 animate-fade-in-up">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="font-body text-sm text-primary font-medium tracking-wide">
-                Digital Marketing Consultant
-              </span>
-            </div>
-
             {/* Headline */}
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-foreground">
               Your wish is{" "}
