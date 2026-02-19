@@ -90,10 +90,11 @@ export default function ContactSection() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-1">
-                  <label className="font-body text-xs text-muted-foreground uppercase tracking-widest">
+                  <label htmlFor="contact-name" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
                     Your Name *
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     required
@@ -106,10 +107,11 @@ export default function ContactSection() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="font-body text-xs text-muted-foreground uppercase tracking-widest">
+                    <label htmlFor="contact-email" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
                       Email *
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       required
@@ -120,10 +122,11 @@ export default function ContactSection() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="font-body text-xs text-muted-foreground uppercase tracking-widest">
+                    <label htmlFor="contact-company" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
                       Company
                     </label>
                     <input
+                      id="contact-company"
                       type="text"
                       name="company"
                       value={form.company}
@@ -135,10 +138,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-body text-xs text-muted-foreground uppercase tracking-widest">
+                  <label htmlFor="contact-message" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
                     Tell me about your goals *
                   </label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     required
                     value={form.message}

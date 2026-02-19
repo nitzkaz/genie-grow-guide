@@ -3,7 +3,7 @@ import genieLogo from "@/assets/genie-logo.png";
 export default function HeroSection() {
   return (
     <section
-      id="hero"
+      id="main-content"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero bg-grid noise"
     >
       {/* Background glow orbs */}
