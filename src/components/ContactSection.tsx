@@ -7,6 +7,7 @@ export default function ContactSection() {
     email: "",
     company: "",
     message: "",
+    consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -151,6 +152,21 @@ export default function ContactSection() {
                     placeholder="What are you working on? What results are you looking to achieve?"
                     className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200 resize-none"
                   />
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    id="contact-consent"
+                    type="checkbox"
+                    name="consent"
+                    required
+                    checked={form.consent}
+                    onChange={(e) => setForm({ ...form, consent: e.target.checked })}
+                    className="mt-1 h-4 w-4 rounded border-border accent-primary flex-shrink-0"
+                  />
+                  <label htmlFor="contact-consent" className="font-body text-xs text-muted-foreground leading-relaxed">
+                    I agree to the Terms and Conditions and Privacy Policy, and I consent to receive marketing communications.
+                  </label>
                 </div>
 
                 <button
