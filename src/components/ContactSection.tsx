@@ -165,7 +165,11 @@ export default function ContactSection() {
                     className="mt-1 h-4 w-4 rounded border-border accent-primary flex-shrink-0"
                   />
                   <label htmlFor="contact-consent" className="font-body text-xs text-muted-foreground leading-relaxed">
-                    I agree to the Terms and Conditions and Privacy Policy, and I consent to receive marketing communications.
+                    I agree to the{" "}
+                    <a href="/terms" target="_blank" className="text-primary underline hover:text-primary/80 transition-colors">
+                      Terms and Conditions and Privacy Policy
+                    </a>
+                    , and I consent to receive marketing communications.
                   </label>
                 </div>
 
