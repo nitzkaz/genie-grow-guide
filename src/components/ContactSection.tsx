@@ -48,8 +48,7 @@ export default function ContactSection() {
 
             {/* Contact info */}
             <div className="space-y-4">
-              {[
-                { icon: "📧", label: "Email", value: "hello@geniesltd.com" },
+               {[
                 { icon: "🌍", label: "Based in", value: "Remote — Available Globally" },
                 { icon: "⏰", label: "Response time", value: "Within 24 hours" },
               ].map((item) => (
