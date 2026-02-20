@@ -71,3 +71,47 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Web3Forms Setup (Contact Form)
+
+The contact form uses Web3Forms to send emails. To set it up:
+
+1. **Sign up for Web3Forms** (free tier: 250 emails/month)
+   - Go to https://web3forms.com/
+   - Click "Get Started" or "Sign Up"
+   - Enter your email address and create an account
+   - **No credit card required**
+
+2. **Verify your email**
+   - Check your inbox for a verification email from Web3Forms
+   - Click the verification link
+
+3. **Get your Access Key**
+   - After verification, you'll be redirected to your dashboard
+   - Your **Access Key** will be displayed (looks like: `a1b2c3d4-e5f6-7890-abcd-ef1234567890`)
+   - Copy this access key
+
+4. **Configure Environment Variables**
+   - Copy `.env.example` to `.env` in the project root:
+     ```bash
+     cp .env.example .env
+     ```
+   - Open `.env` and add your access key:
+     ```
+     VITE_WEB3FORMS_ACCESS_KEY=your_access_key_here
+     ```
+   - Replace `your_access_key_here` with the access key you copied
+
+5. **Restart your dev server** after adding the `.env` file:
+   ```bash
+   npm run dev
+   ```
+
+That's it! The contact form will now send emails directly to your verified email address when users submit the form. You'll receive an email with:
+- User's name
+- User's email address
+- Company (if provided)
+- Message content
+- Timestamp
+
+You can also view submissions in your Web3Forms dashboard (stored for 30 days on the free plan).

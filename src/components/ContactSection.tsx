@@ -10,17 +10,63 @@ export default function ContactSection() {
     consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setError(null); // Clear error when user types
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real app, you'd send this to a backend
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+      if (!accessKey) {
+        throw new Error("Web3Forms access key is missing. Please check your environment variables.");
+      }
+
+      // Create FormData from the form element (matches Web3Forms example)
+      const formData = new FormData(e.currentTarget);
+      formData.append("access_key", accessKey);
+
+      // Send form data to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!data.success) {
+        throw new Error(data.message || "Failed to send message. Please try again.");
+      }
+
+      setSubmitted(true);
+      // Reset form
+      setForm({
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+        consent: false,
+      });
+    } catch (err) {
+      console.error("Web3Forms error:", err);
+      setError(
+        err instanceof Error 
+          ? err.message 
+          : "Failed to send message. Please try again or contact us directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -172,11 +218,18 @@ export default function ContactSection() {
                   </label>
                 </div>
 
+                {error && (
+                  <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/30">
+                    <p className="font-body text-sm text-destructive">{error}</p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl btn-shimmer text-primary-foreground font-body font-semibold text-base transition-all duration-200 hover:scale-[1.02] glow mt-2"
+                  disabled={isSubmitting}
+                  className="w-full py-4 rounded-xl btn-shimmer text-primary-foreground font-body font-semibold text-base transition-all duration-200 hover:scale-[1.02] glow mt-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  ✨ Make a Wish
+                  {isSubmitting ? "Sending..." : "✨ Make a Wish"}
                 </button>
 
                 <p className="font-body text-xs text-muted-foreground text-center">
