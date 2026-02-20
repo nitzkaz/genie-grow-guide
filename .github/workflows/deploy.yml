@@ -1,9 +1,11 @@
 name: Deploy to GitHub Pages
 
+# Runs on every push to main (including when you merge a PR into main)
 on:
   push:
     branches:
       - main
+  workflow_dispatch: # Optional: run manually from Actions tab
 permissions:
   contents: write
 
@@ -13,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
