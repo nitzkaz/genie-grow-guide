@@ -1,6 +1,30 @@
 import { useState } from "react";
 import genieLogo from "@/assets/genie-logo.png";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MIN_NAME_LENGTH = 2;
+const MIN_MESSAGE_LENGTH = 20;
+
+type FieldErrors = Partial<Record<"name" | "email" | "message" | "consent", string>>;
+
+function validateForm(form: { name: string; email: string; message: string; consent: boolean }): FieldErrors {
+  const errors: FieldErrors = {};
+  const name = form.name.trim();
+  if (name.length < MIN_NAME_LENGTH) {
+    errors.name = "Please enter at least 2 characters.";
+  }
+  if (!EMAIL_REGEX.test(form.email.trim())) {
+    errors.email = "Please enter a valid email address.";
+  }
+  if (form.message.trim().length < MIN_MESSAGE_LENGTH) {
+    errors.message = `Please write at least ${MIN_MESSAGE_LENGTH} characters so I can help you better.`;
+  }
+  if (!form.consent) {
+    errors.consent = "Please agree to the terms and consent to continue.";
+  }
+  return errors;
+}
+
 export default function ContactSection() {
   const [form, setForm] = useState({
     name: "",
@@ -12,18 +36,30 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    setError(null); // Clear error when user types
+    const target = e.target;
+    const value = target.type === "checkbox" ? (target as HTMLInputElement).checked : target.value;
+    setForm({ ...form, [target.name]: value });
+    setError(null);
+    if (fieldErrors[target.name as keyof FieldErrors]) {
+      setFieldErrors((prev) => ({ ...prev, [target.name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setError(null);
+    const errors = validateForm(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
+    setIsSubmitting(true);
 
     try {
       const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
@@ -32,11 +68,9 @@ export default function ContactSection() {
         throw new Error("Web3Forms access key is missing. Please check your environment variables.");
       }
 
-      // Create FormData from the form element (matches Web3Forms example)
       const formData = new FormData(e.currentTarget);
       formData.append("access_key", accessKey);
 
-      // Send form data to Web3Forms API
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
@@ -49,7 +83,6 @@ export default function ContactSection() {
       }
 
       setSubmitted(true);
-      // Reset form
       setForm({
         name: "",
         email: "",
@@ -116,6 +149,9 @@ export default function ContactSection() {
                 src={genieLogo}
                 alt="Genies Ltd"
                 className="w-24 h-24 object-contain opacity-60 animate-float"
+                loading="lazy"
+                width={96}
+                height={96}
               />
             </div>
           </div>
@@ -147,8 +183,17 @@ export default function ContactSection() {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Jane Smith"
-                    className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200"
+                    aria-invalid={!!fieldErrors.name}
+                    aria-describedby={fieldErrors.name ? "contact-name-error" : undefined}
+                    className={`w-full px-4 py-3 rounded-xl bg-muted border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all duration-200 ${
+                      fieldErrors.name ? "border-destructive focus:border-destructive" : "border-border focus:border-primary/60"
+                    }`}
                   />
+                  {fieldErrors.name && (
+                    <p id="contact-name-error" className="font-body text-xs text-destructive" role="alert">
+                      {fieldErrors.name}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -164,8 +209,17 @@ export default function ContactSection() {
                       value={form.email}
                       onChange={handleChange}
                       placeholder="jane@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200"
+                      aria-invalid={!!fieldErrors.email}
+                      aria-describedby={fieldErrors.email ? "contact-email-error" : undefined}
+                      className={`w-full px-4 py-3 rounded-xl bg-muted border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all duration-200 ${
+                        fieldErrors.email ? "border-destructive focus:border-destructive" : "border-border focus:border-primary/60"
+                      }`}
                     />
+                    {fieldErrors.email && (
+                      <p id="contact-email-error" className="font-body text-xs text-destructive" role="alert">
+                        {fieldErrors.email}
+                      </p>
+                    )}
                   </div>
                   <div className="space-y-1">
                     <label htmlFor="contact-company" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
@@ -195,8 +249,17 @@ export default function ContactSection() {
                     onChange={handleChange}
                     rows={5}
                     placeholder="What are you working on? What results are you looking to achieve?"
-                    className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200 resize-none"
+                    aria-invalid={!!fieldErrors.message}
+                    aria-describedby={fieldErrors.message ? "contact-message-error" : undefined}
+                    className={`w-full px-4 py-3 rounded-xl bg-muted border text-foreground font-body text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all duration-200 resize-none ${
+                      fieldErrors.message ? "border-destructive focus:border-destructive" : "border-border focus:border-primary/60"
+                    }`}
                   />
+                  {fieldErrors.message && (
+                    <p id="contact-message-error" className="font-body text-xs text-destructive" role="alert">
+                      {fieldErrors.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex items-start gap-3">
@@ -206,8 +269,12 @@ export default function ContactSection() {
                     name="consent"
                     required
                     checked={form.consent}
-                    onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-                    className="mt-1 h-4 w-4 rounded border-border accent-primary flex-shrink-0"
+                    onChange={handleChange}
+                    aria-invalid={!!fieldErrors.consent}
+                    aria-describedby={fieldErrors.consent ? "contact-consent-error" : undefined}
+                    className={`mt-1 h-4 w-4 rounded border accent-primary flex-shrink-0 ${
+                      fieldErrors.consent ? "border-destructive" : "border-border"
+                    }`}
                   />
                   <label htmlFor="contact-consent" className="font-body text-xs text-muted-foreground leading-relaxed">
                     I agree to the{" "}
@@ -216,6 +283,11 @@ export default function ContactSection() {
                     </a>
                     , and I consent to receive marketing communications.
                   </label>
+                  {fieldErrors.consent && (
+                    <p id="contact-consent-error" className="font-body text-xs text-destructive mt-1" role="alert">
+                      {fieldErrors.consent}
+                    </p>
+                  )}
                 </div>
 
                 {error && (

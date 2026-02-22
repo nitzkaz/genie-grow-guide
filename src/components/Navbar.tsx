@@ -43,11 +43,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg">
+        <a href="/" className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg">
           <div className="relative w-10 h-10">
             <img
               src={genieLogo}
               alt="Genies Ltd"
+              width={40}
+              height={40}
               className="relative w-10 h-10 object-contain drop-shadow-lg transition-all duration-300 group-hover:drop-shadow-[0_0_12px_hsl(330_85%_55%_/_0.7)]"
               style={{ mixBlendMode: 'screen' }}
             />

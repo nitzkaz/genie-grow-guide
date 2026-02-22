@@ -72,8 +72,11 @@ export default function HeroSection() {
               <img
                 src={genieLogo}
                 alt="Genies Ltd - Magic Lamp"
+                width={384}
+                height={384}
                 className="relative w-72 h-72 md:w-96 md:h-96 object-contain animate-float animate-genie-glow"
                 style={{ mixBlendMode: 'screen' }}
+                fetchPriority="high"
               />
             </div>
           </div>

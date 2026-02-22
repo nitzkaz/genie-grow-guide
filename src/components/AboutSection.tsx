@@ -39,15 +39,6 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-5 -right-5 bg-primary rounded-2xl px-5 py-3 glow hidden md:block">
-              <div className="font-body text-xs text-primary-foreground font-medium">
-                One-person agency
-              </div>
-              <div className="font-body text-xs text-primary-foreground/70">
-                You work directly with me
-              </div>
-            </div>
           </div>
 
           {/* Right: text */}

@@ -11,6 +11,9 @@ export default function Footer() {
               src={genieLogo}
               alt="Genies Ltd"
               className="w-8 h-8 object-contain"
+              width={32}
+              height={32}
+              loading="lazy"
             />
             <div>
               <span className="font-display font-bold text-base text-foreground">Genies</span>
