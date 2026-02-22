@@ -31,9 +31,9 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="section-padding bg-card/20 relative overflow-hidden">
+    <section id="process" className="section-padding bg-card/20 relative overflow-hidden" aria-labelledby="process-heading">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
@@ -41,7 +41,7 @@ export default function ProcessSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
             <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Process</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 id="process-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground">
             How the magic{" "}
             <span className="text-gradient italic">happens</span>
           </h2>
@@ -53,12 +53,10 @@ export default function ProcessSection() {
 
         {/* Steps */}
         <div className="relative">
-          {/* Connector line (desktop) */}
-          <div className="hidden md:block absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {steps.map((step, i) => (
-              <div key={i} className="relative group">
+          <div className="hidden md:block absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" aria-hidden="true" />
+          <ol className="relative list-none grid md:grid-cols-4 gap-8 m-0 p-0" aria-label="Process steps">
+          {steps.map((step, i) => (
+              <li key={i} className="relative group">
                 {/* Number circle */}
                 <div className="relative mb-6 w-14 h-14 mx-auto md:mx-0">
                   <div className="absolute inset-0 rounded-full bg-primary/20 blur-md group-hover:bg-primary/30 transition-all duration-300" />
@@ -79,9 +77,9 @@ export default function ProcessSection() {
                     {step.description}
                   </p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
 
         {/* Bottom CTA */}
@@ -91,9 +89,9 @@ export default function ProcessSection() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full btn-shimmer text-primary-foreground font-body font-semibold text-base transition-all duration-200 hover:scale-105 glow"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full btn-shimmer text-primary-foreground font-body font-semibold text-base transition-all duration-200 hover:scale-105 glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            <span>✨</span> Start Your Journey
+            <span aria-hidden="true">✨</span> Start Your Journey
           </a>
         </div>
       </div>

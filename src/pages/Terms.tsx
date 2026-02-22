@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 export default function Terms() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="max-w-3xl mx-auto px-6 md:px-12 py-24">
+      <a href="#terms-main" className="skip-link">
+        Skip to content
+      </a>
+      <main id="terms-main" className="max-w-3xl mx-auto px-6 md:px-12 py-24" tabIndex={-1}>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+          className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors mb-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
         >
           ← Back to Home
         </Link>
@@ -93,7 +96,7 @@ export default function Terms() {
             </div>
           </section>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

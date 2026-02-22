@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="section-padding bg-background">
+    <section id="about" className="section-padding bg-background" aria-labelledby="about-heading">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left: visual */}
@@ -56,7 +56,7 @@ export default function AboutSection() {
               <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">About</span>
             </div>
 
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
+            <h2 id="about-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
               The magic is in the{" "}
               <span className="text-gradient">details</span>
             </h2>
@@ -84,9 +84,9 @@ export default function AboutSection() {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 font-body text-primary font-medium text-sm hover:gap-3 transition-all duration-200"
+              className="inline-flex items-center gap-2 font-body text-primary font-medium text-sm hover:gap-3 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
             >
-              Let's work together <span>→</span>
+              Let's work together <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>

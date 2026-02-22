@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import genieLogo from "@/assets/genie-logo.png";
 
 const navLinks = [
@@ -8,6 +8,8 @@ const navLinks = [
   { href: "#process", label: "How I Work" },
   { href: "#contact", label: "Contact" },
 ];
+
+const MOBILE_MENU_ID = "main-nav-menu";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +21,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [menuOpen, closeMenu]);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -26,10 +39,11 @@ export default function Navbar() {
           ? "bg-background/95 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="#" className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg">
           <div className="relative w-10 h-10">
             <img
               src={genieLogo}
@@ -54,14 +68,14 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-sm text-muted-foreground hover:text-foreground underline-animate transition-colors duration-200"
+              className="font-body text-sm text-muted-foreground hover:text-foreground underline-animate transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="ml-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-body text-sm font-medium hover:opacity-90 glow-sm transition-all duration-200"
+            className="ml-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-body text-sm font-medium hover:opacity-90 glow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Let's Talk
           </a>
@@ -69,9 +83,12 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          type="button"
+          className="md:hidden flex flex-col gap-1.5 p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls={MOBILE_MENU_ID}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
           <span
             className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
@@ -92,27 +109,30 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-card border-b border-border px-6 py-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-body text-base text-muted-foreground hover:text-primary transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+      <div
+        id={MOBILE_MENU_ID}
+        className="md:hidden bg-card border-b border-border px-6 py-6 flex flex-col gap-4"
+        hidden={!menuOpen}
+        aria-hidden={!menuOpen}
+      >
+        {navLinks.map((link) => (
           <a
-            href="#contact"
-            className="mt-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-body text-sm font-medium text-center"
-            onClick={() => setMenuOpen(false)}
+            key={link.href}
+            href={link.href}
+            className="font-body text-base text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded py-1"
+            onClick={closeMenu}
           >
-            Let's Talk
+            {link.label}
           </a>
-        </div>
-      )}
+        ))}
+        <a
+          href="#contact"
+          className="mt-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-body text-sm font-medium text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          onClick={closeMenu}
+        >
+          Let's Talk
+        </a>
+      </div>
     </nav>
   );
 }

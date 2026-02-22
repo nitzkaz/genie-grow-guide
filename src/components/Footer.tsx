@@ -30,7 +30,7 @@ export default function Footer() {
               <a
                 key={href}
                 href={href}
-                className="font-body text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                className="font-body text-sm text-muted-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1"
               >
                 {label}
               </a>

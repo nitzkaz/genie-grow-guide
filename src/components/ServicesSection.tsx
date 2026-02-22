@@ -45,14 +45,14 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-card/30">
+    <section id="services" className="section-padding bg-card/30" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
             <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Services</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 id="services-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground">
             What I do for your{" "}
             <span className="text-gradient italic">growth</span>
           </h2>

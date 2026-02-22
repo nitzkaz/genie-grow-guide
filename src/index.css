@@ -89,9 +89,32 @@
     scroll-behavior: smooth;
   }
 
+  /* Respect user motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+  }
+
+  /* Visible focus for keyboard users (don’t remove outline without replacement) */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
   }
 
   h1, h2, h3, h4 {
@@ -187,6 +210,30 @@
   /* Section spacing */
   .section-padding {
     @apply py-24 px-6 md:px-12 lg:px-24;
+  }
+
+  /* Skip link: visually hidden until focused (accessibility) */
+  .skip-link {
+    @apply sr-only font-body text-sm;
+  }
+  .skip-link:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
+    border-width: 0;
+    border-radius: 0.5rem;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-weight: 500;
+    box-shadow: 0 0 0 2px hsl(var(--background));
   }
 }
 

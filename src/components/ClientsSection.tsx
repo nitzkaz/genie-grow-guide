@@ -41,14 +41,14 @@ const clients = [
 
 export default function ClientsSection() {
   return (
-    <section id="clients" className="section-padding bg-background">
+    <section id="clients" className="section-padding bg-background" aria-labelledby="clients-heading">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
             <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Clients</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 id="clients-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground">
             Trusted by companies{" "}
             <span className="text-gradient italic">that grow</span>
           </h2>
@@ -83,22 +83,22 @@ export default function ClientsSection() {
 
         {/* Testimonial */}
         <div className="mt-16 rounded-2xl border border-primary/20 bg-primary/5 p-10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 blur-[80px] rounded-full" />
+          <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 blur-[80px] rounded-full" aria-hidden="true" />
           <div className="relative">
-            <div className="text-4xl mb-4">❝</div>
+            <div className="text-4xl mb-4" aria-hidden="true">❝</div>
             <blockquote className="font-display text-xl md:text-2xl font-semibold text-foreground italic leading-relaxed max-w-3xl">
               Working with Genies felt like having a seasoned CMO in-house — without the price tag. Our
               Google Ads ROI improved dramatically within the first month.
             </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center font-display font-bold text-primary text-sm">
+            <footer className="mt-6 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center font-display font-bold text-primary text-sm" aria-hidden="true">
                 R
               </div>
               <div>
-                <div className="font-body text-sm font-medium text-foreground">Ron M.</div>
+                <cite className="font-body text-sm font-medium text-foreground not-italic">Ron M.</cite>
                 <div className="font-body text-xs text-muted-foreground">VP Marketing, Tech Startup</div>
               </div>
-            </div>
+            </footer>
           </div>
         </div>
       </div>

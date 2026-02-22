@@ -70,9 +70,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-background relative overflow-hidden">
-      {/* Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 blur-[100px] pointer-events-none rounded-full" />
+    <section id="contact" className="section-padding bg-background relative overflow-hidden" aria-labelledby="contact-heading">
+      {/* Glow - decorative */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 blur-[100px] pointer-events-none rounded-full" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -82,7 +82,7 @@ export default function ContactSection() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
                 <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Contact</span>
               </div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
+              <h2 id="contact-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
                 Your wish awaits —{" "}
                 <span className="text-gradient italic">let's talk</span>
               </h2>
@@ -211,7 +211,7 @@ export default function ContactSection() {
                   />
                   <label htmlFor="contact-consent" className="font-body text-xs text-muted-foreground leading-relaxed">
                     I agree to the{" "}
-                    <a href="/terms" target="_blank" className="text-primary underline hover:text-primary/80 transition-colors">
+                    <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded">
                       Terms and Conditions and Privacy Policy
                     </a>
                     , and I consent to receive marketing communications.
@@ -219,7 +219,7 @@ export default function ContactSection() {
                 </div>
 
                 {error && (
-                  <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/30">
+                  <div role="alert" aria-live="assertive" className="p-4 rounded-xl bg-destructive/10 border border-destructive/30">
                     <p className="font-body text-sm text-destructive">{error}</p>
                   </div>
                 )}
@@ -227,7 +227,8 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl btn-shimmer text-primary-foreground font-body font-semibold text-base transition-all duration-200 hover:scale-[1.02] glow mt-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  aria-busy={isSubmitting}
+                  className="w-full py-4 rounded-xl btn-shimmer text-primary-foreground font-body font-semibold text-base transition-all duration-200 hover:scale-[1.02] glow mt-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {isSubmitting ? "Sending..." : "✨ Make a Wish"}
                 </button>
