@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ClientLogos from "@/components/ClientLogos";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ClientsSection from "@/components/ClientsSection";
@@ -16,6 +17,7 @@ export default function Index() {
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
+        <ClientLogos />
         <AboutSection />
         <ServicesSection />
         <ClientsSection />

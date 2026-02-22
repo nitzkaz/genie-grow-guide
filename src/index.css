@@ -282,6 +282,10 @@
   from { opacity: 0; transform: translateX(-30px); }
   to { opacity: 1; transform: translateX(0); }
 }
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 .animate-float {
   animation: float 5s ease-in-out infinite;
@@ -297,6 +301,9 @@
 }
 .animate-slide-in-left {
   animation: slideInLeft 0.7s ease-out forwards;
+}
+.animate-scroll-left {
+  animation: scrollLeft 25s linear infinite;
 }
 
 /* Shimmer button effect */
