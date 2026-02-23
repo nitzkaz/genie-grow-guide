@@ -29,10 +29,12 @@ export default function Footer() {
               ["#clients", "Clients"],
               ["#process", "Process"],
               ["#contact", "Contact"],
+              ["https://www.genies.marketing/terms", "Terms"],
             ].map(([href, label]) => (
               <a
                 key={href}
                 href={href}
+                {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="font-body text-sm text-muted-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1"
               >
                 {label}

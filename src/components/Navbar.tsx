@@ -7,6 +7,7 @@ const navLinks = [
   { href: "#clients", label: "Clients" },
   { href: "#process", label: "How I Work" },
   { href: "#contact", label: "Contact" },
+  { href: "https://www.genies.marketing/terms", label: "Terms", external: true },
 ];
 
 const MOBILE_MENU_ID = "main-nav-menu";
@@ -70,6 +71,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="font-body text-sm text-muted-foreground hover:text-foreground underline-animate transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
             >
               {link.label}
@@ -125,6 +127,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="font-body text-base text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded py-1"
               onClick={closeMenu}
             >
