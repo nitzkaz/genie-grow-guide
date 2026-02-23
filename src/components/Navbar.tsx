@@ -13,12 +13,26 @@ const MOBILE_MENU_ID = "main-nav-menu";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [pastFirstFold, setPastFirstFold] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
+    const handler = () => {
+      setScrolled(window.scrollY > 40);
+      setPastFirstFold(window.scrollY > window.innerHeight);
+    };
+    handler();
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const handler = () => setIsMobile(mq.matches);
+    handler();
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
@@ -83,6 +97,16 @@ export default function Navbar() {
             Let's Talk
           </a>
         </div>
+
+        {/* Mobile only: "Make a wish" CTA in bar after scrolling past first fold */}
+        {isMobile && pastFirstFold && (
+          <a
+            href="#contact"
+            className="md:hidden inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full btn-shimmer text-primary-foreground font-body font-semibold text-sm transition-all duration-200 hover:scale-105 glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <span aria-hidden="true">✨</span> Make a wish
+          </a>
+        )}
 
         {/* Mobile menu button - only visible on small screens */}
         <button
