@@ -287,6 +287,15 @@
   to { transform: translateX(-50%); }
 }
 
+/* Logo bounces down toward the line above "Trusted by" (mobile/tablet) */
+@keyframes bounce-down {
+  0% { transform: translateY(-20px); }
+  45% { transform: translateY(12px); }
+  65% { transform: translateY(-6px); }
+  80% { transform: translateY(3px); }
+  100% { transform: translateY(0); }
+}
+
 .animate-float {
   animation: float 5s ease-in-out infinite;
 }
@@ -304,6 +313,10 @@
 }
 .animate-scroll-left {
   animation: scrollLeft 25s linear infinite;
+}
+
+.animate-bounce-down {
+  animation: bounce-down 2.5s ease-in-out infinite;
 }
 
 /* Shimmer button effect */

@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero bg-grid noise"
+      className="relative min-h-0 md:min-h-screen flex items-center justify-center overflow-hidden bg-hero bg-grid noise"
       aria-label="Hero"
     >
       {/* Background glow orbs - decorative */}
@@ -80,6 +80,19 @@ export default function HeroSection() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Genie logo on mobile/tablet only - bounces down to line above "Trusted by" */}
+        <div className="md:hidden flex justify-center pt-8 sm:pt-12 pb-0 -mb-px">
+          <img
+            src={genieLogo}
+            alt=""
+            width={200}
+            height={200}
+            className="w-32 h-32 sm:w-40 sm:h-40 object-contain opacity-90 animate-float"
+            style={{ mixBlendMode: "screen" }}
+            aria-hidden="true"
+          />
         </div>
       </div>
 
