@@ -6,7 +6,7 @@ export default function Terms() {
       <a href="#terms-main" className="skip-link">
         Skip to content
       </a>
-      <main id="terms-main" className="max-w-3xl mx-auto px-6 md:px-12 py-24" tabIndex={-1}>
+      <main id="terms-main" className="max-w-3xl mx-auto px-4 sm:px-6 md:px-12 py-14 sm:py-20 md:py-24" tabIndex={-1}>
         <Link
           to="/"
           className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors mb-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
@@ -14,7 +14,7 @@ export default function Terms() {
           ← Back to Home
         </Link>
 
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
           Terms &amp; Conditions{" "}
           <span className="text-gradient italic">&amp; Privacy Policy</span>
         </h1>

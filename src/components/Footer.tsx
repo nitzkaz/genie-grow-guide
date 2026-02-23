@@ -2,9 +2,9 @@ import genieLogo from "@/assets/genie-logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-card/50 border-t border-border py-12 px-6 md:px-12">
+    <footer className="bg-card/50 border-t border-border py-10 sm:py-12 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           {/* Nav */}
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {[
               ["#about", "About"],
               ["#services", "Services"],
@@ -47,8 +47,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom tagline */}
-        <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="font-display text-sm text-muted-foreground italic">
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border text-center">
+          <p className="font-display text-xs sm:text-sm text-muted-foreground italic px-2">
             "Your wish is my command" — 
             <span className="text-gradient ml-1">Genies Ltd</span>
           </p>

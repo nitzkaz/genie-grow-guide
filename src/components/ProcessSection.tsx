@@ -37,15 +37,15 @@ export default function ProcessSection() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-4 mb-10 sm:mb-14 md:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
             <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Process</span>
           </div>
-          <h2 id="process-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 id="process-heading" className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground px-2">
             How the magic{" "}
             <span className="text-gradient italic">happens</span>
           </h2>
-          <p className="font-body text-muted-foreground text-lg max-w-xl mx-auto">
+          <p className="font-body text-muted-foreground text-base sm:text-lg max-w-xl mx-auto px-2">
             A clear, transparent process from first conversation to
             measurable results.
           </p>
@@ -54,7 +54,7 @@ export default function ProcessSection() {
         {/* Steps */}
         <div className="relative">
           <div className="hidden md:block absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" aria-hidden="true" />
-          <ol className="relative list-none grid md:grid-cols-4 gap-8 m-0 p-0" aria-label="Process steps">
+          <ol className="relative list-none grid md:grid-cols-4 gap-8 sm:gap-10 md:gap-8 m-0 p-0" aria-label="Process steps">
           {steps.map((step, i) => (
               <li key={i} className="relative group">
                 {/* Number circle */}
@@ -83,7 +83,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 text-center">
+        <div className="mt-12 sm:mt-16 md:mt-20 text-center">
           <p className="font-body text-muted-foreground mb-6">
             Ready to get started? The first call is always free.
           </p>

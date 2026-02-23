@@ -48,26 +48,26 @@ export default function ServicesSection() {
     <section id="services" className="section-padding bg-card/30" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-4 mb-10 sm:mb-14 md:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
             <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Services</span>
           </div>
-          <h2 id="services-heading" className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 id="services-heading" className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground px-2">
             What I do for your{" "}
             <span className="text-gradient italic">growth</span>
           </h2>
-          <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">
             Results-driven paid advertising services, tailored to your
             specific goals. No fluff, no guesswork — just measurable outcomes.
           </p>
         </div>
 
         {/* Service cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, i) => (
             <div
               key={i}
-              className="group relative rounded-2xl border border-border bg-card-gradient p-8 hover:border-primary/40 hover:glow-sm transition-all duration-300"
+              className="group relative rounded-2xl border border-border bg-card-gradient p-6 sm:p-8 hover:border-primary/40 hover:glow-sm transition-all duration-300"
             >
               {/* Corner accent */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-[100px] rounded-tr-2xl group-hover:bg-primary/10 transition-all duration-300" />
