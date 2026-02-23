@@ -4,7 +4,6 @@ import genieLogo from "@/assets/genie-logo.png";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#clients", label: "Clients" },
   { href: "#process", label: "How I Work" },
   { href: "#contact", label: "Contact" },
   { href: "https://www.genies.marketing/terms", label: "Terms", external: true },
