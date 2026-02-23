@@ -3,7 +3,6 @@ import genieLogo from "@/assets/genie-logo.png";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_NAME_LENGTH = 2;
-const MIN_MESSAGE_LENGTH = 20;
 
 type FieldErrors = Partial<Record<"name" | "email" | "message" | "consent", string>>;
 
@@ -15,9 +14,6 @@ function validateForm(form: { name: string; email: string; message: string; cons
   }
   if (!EMAIL_REGEX.test(form.email.trim())) {
     errors.email = "Please enter a valid email address.";
-  }
-  if (form.message.trim().length < MIN_MESSAGE_LENGTH) {
-    errors.message = `Please write at least ${MIN_MESSAGE_LENGTH} characters so I can help you better.`;
   }
   if (!form.consent) {
     errors.consent = "Please agree to the terms and consent to continue.";
@@ -239,12 +235,11 @@ export default function ContactSection() {
 
                 <div className="space-y-1">
                   <label htmlFor="contact-message" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
-                    Tell me about your goals *
+                    Tell me about your goals
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
-                    required
                     value={form.message}
                     onChange={handleChange}
                     rows={5}
