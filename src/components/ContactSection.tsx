@@ -116,7 +116,7 @@ export default function ContactSection() {
                 <span className="text-gradient italic">let's talk</span>
               </h2>
               <p className="font-body text-muted-foreground text-base sm:text-lg leading-relaxed">
-                Send me a message and I'll get back to you within 24 hours.
+                Send us a message and we'll get back to you within 24 hours.
                 The first strategy call is always free — no strings attached.
               </p>
             </div>
@@ -235,7 +235,7 @@ export default function ContactSection() {
 
                 <div className="space-y-1">
                   <label htmlFor="contact-message" className="font-body text-xs text-muted-foreground uppercase tracking-widest">
-                    Tell me about your goals
+                    Tell us about your goals
                   </label>
                   <textarea
                     id="contact-message"

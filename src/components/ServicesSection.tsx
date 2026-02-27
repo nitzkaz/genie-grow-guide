@@ -3,14 +3,14 @@ const services = [
     icon: "🎯",
     title: "Campaign Strategy & Setup",
     description:
-      "From keyword research to ad group architecture, I build campaigns with a solid foundation designed to scale. Search, DSA, Performance Max — I cover it all.",
+      "From keyword research to ad group architecture, we build campaigns with a solid foundation designed to scale. Search, DSA, Performance Max — we cover it all.",
     tags: ["Google Ads", "Keyword Research", "Audience Targeting"],
   },
   {
     icon: "⚙️",
     title: "Ongoing Management & Optimization",
     description:
-      "Continuous monitoring, bid adjustments, budget reallocation, and creative testing. I keep your campaigns sharp and your ROI climbing — every single week.",
+      "Continuous monitoring, bid adjustments, budget reallocation, and creative testing. We keep your campaigns sharp and your ROI climbing — every single week.",
     tags: ["Bid Management", "A/B Testing", "Budget Optimization"],
   },
   {
@@ -31,14 +31,14 @@ const services = [
     icon: "🌍",
     title: "Market & Competitive Research",
     description:
-      "Understand where your competitors are winning (and losing) in paid search. I map the landscape so your campaigns start with an unfair advantage.",
+      "Understand where your competitors are winning (and losing) in paid search. We map the landscape so your campaigns start with an unfair advantage.",
     tags: ["Competitor Analysis", "Market Research", "Expansion Opportunities"],
   },
   {
     icon: "🔄",
     title: "App Funnel Transition",
     description:
-      "Ready to expand from web to app? I manage the transition from web funnels to app install and engagement campaigns with precision.",
+      "Ready to expand from web to app? We manage the transition from web funnels to app install and engagement campaigns with precision.",
     tags: ["App Campaigns", "UAC", "Funnel Testing"],
   },
 ];
@@ -53,7 +53,7 @@ export default function ServicesSection() {
             <span className="font-body text-xs text-primary font-medium tracking-widest uppercase">Services</span>
           </div>
           <h2 id="services-heading" className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground px-2">
-            What I do for your{" "}
+            What we do for your{" "}
             <span className="text-gradient italic">growth</span>
           </h2>
           <p className="font-body text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">

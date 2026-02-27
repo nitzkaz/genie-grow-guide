@@ -14,7 +14,7 @@ const jsonLd = {
       url: SITE_URL,
       description:
         "Results-driven paid advertising consultancy. Google Ads strategy, campaign management, and optimization that delivers measurable growth for tech companies.",
-      slogan: "Your wish is my command",
+      slogan: "Your wish is our command",
     },
     {
       "@type": "ProfessionalService",

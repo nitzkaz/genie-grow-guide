@@ -20,13 +20,13 @@ export default function HeroSection() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-foreground">
               Your wish is{" "}
               <span className="text-gradient glow-text italic">
-                my command
+                our command
               </span>
             </h1>
 
             {/* Subheadline */}
             <p className="font-body text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto md:mx-0">
-              Paid advertising that actually delivers. I build, manage, and
+              Paid advertising that actually delivers. We build, manage, and
               optimize campaigns that grow your business — with the precision
               of an agency and the care of a dedicated partner.
             </p>
@@ -43,7 +43,7 @@ export default function HeroSection() {
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-border hover:border-primary/50 text-foreground font-body font-medium text-base transition-all duration-200 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                See My Services →
+                See Our Services →
               </a>
             </div>
 

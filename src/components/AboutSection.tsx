@@ -12,7 +12,7 @@ export default function AboutSection() {
                   ✨
                 </div>
                 <blockquote className="font-display text-xl sm:text-2xl font-semibold text-foreground italic leading-relaxed">
-                  "I don't just run your ads — I become{" "}
+                  "We don't just run your ads — we become{" "}
                   <span className="text-gradient">obsessed</span> with your
                   growth."
                 </blockquote>
@@ -56,19 +56,19 @@ export default function AboutSection() {
               <p>
                 Genies Ltd is a boutique digital marketing consultancy
                 specializing in paid advertising — with a particular mastery
-                of Google Ads. I partner directly with fast-growing companies
+                of Google Ads. We partner directly with fast-growing companies
                 and startups to build campaigns that perform.
               </p>
               <p>
-                What makes me different? I'm not an agency with account
+                What makes us different? We're not an agency with account
                 managers and layers of approval. When you work with Genies,
-                you work with <span className="text-foreground font-medium">me</span> — directly. Every
+                you work with <span className="text-foreground font-medium">us</span> — directly. Every
                 keyword researched, every bid optimized, every report written
                 is done with your goals at the center.
               </p>
               <p>
-                I combine the professionalism of a seasoned agency with the
-                personal touch of a trusted advisor. Think of me as your
+                We combine the professionalism of a seasoned agency with the
+                personal touch of a trusted advisor. Think of us as your
                 in-house growth partner — without the overhead.
               </p>
             </div>

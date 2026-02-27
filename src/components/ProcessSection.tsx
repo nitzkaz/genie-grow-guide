@@ -3,28 +3,28 @@ const steps = [
     number: "01",
     title: "Discovery Call",
     description:
-      "We start with a free strategy call. I learn everything about your business, goals, current situation, and what success looks like for you.",
+      "We start with a free strategy call. We learn everything about your business, goals, current situation, and what success looks like for you.",
     icon: "🤝",
   },
   {
     number: "02",
     title: "Strategy & Audit",
     description:
-      "If you're running ads, I audit your account first. Then I build a tailored paid media strategy — including keywords, targeting, structure, and budget plan.",
+      "If you're running ads, we audit your account first. Then we build a tailored paid media strategy — including keywords, targeting, structure, and budget plan.",
     icon: "🗺️",
   },
   {
     number: "03",
     title: "Build & Launch",
     description:
-      "I set up your campaigns with precision. From creatives to conversion tracking — everything is tested before a single dollar is spent.",
+      "We set up your campaigns with precision. From creatives to conversion tracking — everything is tested before a single dollar is spent.",
     icon: "🚀",
   },
   {
     number: "04",
     title: "Optimize Continuously",
     description:
-      "No set-and-forget. I monitor daily, optimize weekly, and report every two weeks with clear insights and next steps.",
+      "No set-and-forget. We monitor daily, optimize weekly, and report every two weeks with clear insights and next steps.",
     icon: "⚡",
   },
 ];
