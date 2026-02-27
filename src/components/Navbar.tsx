@@ -69,8 +69,9 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="font-display font-bold text-lg text-foreground tracking-wide">
-              Genies
+            <span className="font-display text-lg text-foreground tracking-wide whitespace-pre">
+              <span className="font-bold text-2xl">Genies</span>
+              <span className="font-normal text-sm">  Marketing</span>
             </span>
             <span className="font-body text-xs text-muted-foreground tracking-widest uppercase">
               ltd
