@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Terms() {
+export default function Privacy() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <a href="#terms-main" className="skip-link">

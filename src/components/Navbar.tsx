@@ -6,7 +6,7 @@ const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#process", label: "How I Work" },
   { href: "#contact", label: "Contact" },
-  { href: "https://www.genies.marketing/terms", label: "Terms", external: true },
+  { href: "https://www.genies.marketing/privacy", label: "Privacy", external: true },
 ];
 
 const MOBILE_MENU_ID = "main-nav-menu";

@@ -273,7 +273,7 @@ export default function ContactSection() {
                   />
                   <label htmlFor="contact-consent" className="font-body text-xs text-muted-foreground leading-relaxed">
                     I agree to the{" "}
-                    <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded">
+                    <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded">
                       Terms and Conditions and Privacy Policy
                     </a>
                     , and I consent to receive marketing communications.

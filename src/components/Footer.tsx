@@ -29,7 +29,7 @@ export default function Footer() {
               ["#clients", "Clients"],
               ["#process", "Process"],
               ["#contact", "Contact"],
-              ["https://www.genies.marketing/terms", "Terms"],
+              ["https://www.genies.marketing/privacy", "Privacy"],
             ].map(([href, label]) => (
               <a
                 key={href}
